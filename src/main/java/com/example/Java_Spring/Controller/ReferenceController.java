@@ -1,7 +1,7 @@
 package com.example.Java_Spring.Controller;
 
 
-import com.example.Java_Spring.Fuel;
+import com.example.Java_Spring.Classes.Fuel;
 import com.example.Java_Spring.Properties.ReferenceDataProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;

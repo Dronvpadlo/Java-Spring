@@ -18,7 +18,7 @@ public class ReferenceController {
     @Value("${reference-data.engineTypes}")
     private List<String> engineTypes;
 
-    private ReferenceDataProperties referenceDataProperties;
+    private final ReferenceDataProperties referenceDataProperties;
 
     public ReferenceController(ReferenceDataProperties referenceDataProperties) {
         this.referenceDataProperties = referenceDataProperties;

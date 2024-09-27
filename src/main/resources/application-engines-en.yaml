@@ -1,5 +1,5 @@
 reference-data:
-  engineTypes: Бензиновий, Дизельний, Гібридний
+  engineTypes: Gasoline, Diesel, Hybrid
   fuels:
     - name: gasoline
       types: A95, A98, A100

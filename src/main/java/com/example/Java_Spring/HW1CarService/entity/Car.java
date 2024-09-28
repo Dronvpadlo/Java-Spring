@@ -8,8 +8,9 @@ import lombok.Data;
 @Table(name="cars")
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
     private Integer enginePower;
+    private Integer torque;
 }

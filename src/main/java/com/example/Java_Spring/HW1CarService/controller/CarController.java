@@ -18,10 +18,6 @@ public class CarController {
         return carRepository.findAll();
     }
 
-
-
-
-
     @PostMapping("/cars")
     public Car createCar(@RequestBody Car car){
         return carRepository.save(car);

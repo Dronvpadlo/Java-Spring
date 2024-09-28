@@ -1,5 +1,5 @@
-package com.example.Java_Spring.HW1.Properties;
-import com.example.Java_Spring.HW1.Classes.Fuel;
+package com.example.Java_Spring.HW1.properties;
+import com.example.Java_Spring.HW1.classes.Fuel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

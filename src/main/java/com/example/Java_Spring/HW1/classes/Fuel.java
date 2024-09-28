@@ -1,4 +1,4 @@
-package com.example.Java_Spring.HW1.Classes;
+package com.example.Java_Spring.HW1.classes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

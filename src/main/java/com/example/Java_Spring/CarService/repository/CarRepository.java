@@ -1,6 +1,6 @@
-package com.example.Java_Spring.HW1CarService.repository;
+package com.example.Java_Spring.CarService.repository;
 
-import com.example.Java_Spring.HW1CarService.entity.Car;
+import com.example.Java_Spring.CarService.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

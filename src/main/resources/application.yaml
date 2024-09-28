@@ -3,3 +3,14 @@ spring:
     name: CarService
   profiles:
     active: engines-uk
+  datasource:
+    url: "jdbc:mysql://localhost:3306/userDB"
+    username: "root"
+    password: "Android714@"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true

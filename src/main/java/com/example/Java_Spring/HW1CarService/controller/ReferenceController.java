@@ -1,8 +1,8 @@
-package com.example.Java_Spring.HW1.controller;
+package com.example.Java_Spring.HW1CarService.controller;
 
 
-import com.example.Java_Spring.HW1.classes.Fuel;
-import com.example.Java_Spring.HW1.properties.ReferenceDataProperties;
+import com.example.Java_Spring.HW1CarService.classes.Fuel;
+import com.example.Java_Spring.HW1CarService.properties.ReferenceDataProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

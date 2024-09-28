@@ -1,0 +1,15 @@
+package com.example.Java_Spring.HW1CarService.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="cars")
+public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String model;
+    private Integer enginePower;
+}

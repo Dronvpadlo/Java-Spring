@@ -1,4 +1,4 @@
-package com.example.Java_Spring.CarService.entity;
+package com.example.Java_Spring.carService.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,7 +1,7 @@
-package com.example.Java_Spring.CarService.controller;
+package com.example.Java_Spring.carService.controller;
 
-import com.example.Java_Spring.CarService.entity.Car;
-import com.example.Java_Spring.CarService.repository.CarRepository;
+import com.example.Java_Spring.carService.entity.Car;
+import com.example.Java_Spring.carService.repository.CarRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

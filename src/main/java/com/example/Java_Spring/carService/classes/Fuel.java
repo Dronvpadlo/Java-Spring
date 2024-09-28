@@ -1,4 +1,4 @@
-package com.example.Java_Spring.CarService.classes;
+package com.example.Java_Spring.carService.classes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

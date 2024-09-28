@@ -1,5 +1,5 @@
-package com.example.Java_Spring.CarService.properties;
-import com.example.Java_Spring.CarService.classes.Fuel;
+package com.example.Java_Spring.carService.properties;
+import com.example.Java_Spring.carService.classes.Fuel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

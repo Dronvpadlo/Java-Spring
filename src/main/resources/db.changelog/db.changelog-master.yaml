@@ -28,4 +28,26 @@ databaseChangeLog:
               - column:
                   name: "torque"
                   type: "numeric"
-
+  - changeSet:
+      id: "1.0.3"
+      author: "r00oot"
+      changes:
+        - addColumn:
+            tableName: "cars"
+            columns:
+              - column:
+                  name: "fuelType"
+                  type: "text"
+  - changeSet:
+      id: "1.0.4"
+      author: "root"
+      changes:
+        - addColumn:
+            tableName: "cars"
+            columns:
+              - column:
+                  name: "fuel_type_name"
+                  type: "varchar(255)"
+              - column:
+                  name: "fuel_type_type"
+                  type: "varchar(255)"

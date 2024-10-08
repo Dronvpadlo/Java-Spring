@@ -1,9 +1,6 @@
 package com.example.Java_Spring.carService.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +22,6 @@ public class Car {
 
     private Integer torque;
 
-    //@Embedded
-    //private FuelType fuelType;
+    @Embedded
+    private FuelType fuelType;
 }

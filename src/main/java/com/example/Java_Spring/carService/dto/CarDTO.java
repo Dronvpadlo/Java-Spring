@@ -1,5 +1,6 @@
 package com.example.Java_Spring.carService.dto;
 
+import com.example.Java_Spring.carService.entity.FuelType;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -22,4 +23,6 @@ public class CarDTO {
 
     @Min(value = 1, message = "Torque must be min 1")
     private Integer torque;
+
+    private FuelType fuelType;
 }

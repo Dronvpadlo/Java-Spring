@@ -15,24 +15,25 @@ public class CarUtil {
     //Get All
     public List<CarDTO> convertCarToDTO(List<Car> carList){
         List<CarDTO> collect = carList.stream()
-                .map(car -> new CarDTO(car.getId(), car.getModel(), car.getEnginePower(), car.getTorque()))
+                .map(car -> new CarDTO(car.getId(), car.getModel(), car.getEnginePower(), car.getTorque(), car.getFuelType()))
                 .collect(Collectors
                         .toList());
         return collect;
     }
-    // Get By Id
+    // GetById
     public CarDTO convertCarToDTO(Car car){
-        return new CarDTO(car.getId(), car.getModel(), car.getEnginePower(), car.getTorque());
+        return new CarDTO(car.getId(), car.getModel(), car.getEnginePower(), car.getTorque(), car.getFuelType());
 
     }
 
-    // Post Car
+    // PostCar
     public Car converteDTOtoCar(CarDTO carDTO){
         Car car = new Car();
         car.setId(carDTO.getId());
         car.setModel(carDTO.getModel());
         car.setEnginePower(carDTO.getEnginePower());
         car.setTorque(carDTO.getTorque());
+        car.setFuelType(carDTO.getFuelType());
         return car;
     }
 

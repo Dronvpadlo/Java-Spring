@@ -12,6 +12,7 @@ public class CarMapper {
         dto.setModel(car.getModel());
         dto.setEnginePower(car.getEnginePower());
         dto.setTorque(car.getTorque());
+        dto.setFuelType(car.getFuelType());
         return dto;
     }
 

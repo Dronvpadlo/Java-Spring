@@ -1,12 +1,13 @@
 package com.example.Java_Spring.carService.services;
-
-import com.example.Java_Spring.carService.dto.CarDTO;
 import com.example.Java_Spring.carService.entity.Car;
+import com.example.Java_Spring.carService.dto.CarDTO;
 import com.example.Java_Spring.carService.repository.CarRepository;
 import com.example.Java_Spring.carService.utils.CarUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -43,5 +44,20 @@ public class CarService {
                 })
                 .orElseGet(()->ResponseEntity.notFound().build());
         return carUtil.convertCarToDTO(carRepository.findById(id).get());
+    }
+
+    public CarDTO maxPowerCar() {
+        return carRepository.findAll().stream()
+                .max(Comparator.comparingInt(Car::getEnginePower))
+                .map(carUtil::convertCarToDTO)
+                .orElse(null);
+
+    }
+    public CarDTO minPowerCar() {
+        return carRepository.findAll().stream()
+                .min(Comparator.comparingInt(Car::getEnginePower))
+                .map(carUtil::convertCarToDTO)
+                .orElse(null);
+
     }
 }

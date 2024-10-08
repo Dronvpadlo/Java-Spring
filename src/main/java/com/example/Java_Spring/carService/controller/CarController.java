@@ -47,19 +47,13 @@ public class CarController {
     }
 
     @GetMapping("/cars/max-engine-power")
-    public ResponseEntity<Car> foundMaxPowerCar(){
-        return carRepository.findAll()
-                .stream()
-                .max((o1, o2) -> o1.getEnginePower().compareTo(o2.getEnginePower()))
-                .map(ResponseEntity::ok)
-                .orElseGet(()-> ResponseEntity.notFound().build());
+    public ResponseEntity<CarDTO> foundMaxPowerCar() {
+        CarDTO maxPowerCar = carService.maxPowerCar();
+        return ResponseEntity.ok(maxPowerCar);
     }
     @GetMapping("/cars/min-engine-power")
-    public ResponseEntity<Car> foundMinPowerCar(){
-        return carRepository.findAll()
-                .stream()
-                .min(((o1, o2) -> o1.getEnginePower().compareTo(o2.getEnginePower())))
-                .map(ResponseEntity::ok)
-                .orElseGet(()-> ResponseEntity.notFound().build());
+    public ResponseEntity<CarDTO> foundMinPowerCar() {
+        CarDTO maxPowerCar = carService.minPowerCar();
+        return ResponseEntity.ok(maxPowerCar);
     }
 }

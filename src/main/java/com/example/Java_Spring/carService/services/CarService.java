@@ -5,6 +5,7 @@ import com.example.Java_Spring.carService.entity.Car;
 import com.example.Java_Spring.carService.repository.CarRepository;
 import com.example.Java_Spring.carService.utils.CarUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -28,7 +29,19 @@ public class CarService {
         return carDTO;
     }
 
-    public void delete(Long id) {
+    public void deleteCar(Long id) {
         carRepository.deleteById(id);
     }
+
+    /*public CarDTO putCar(Long id, Car newCar){
+        carRepository.findById(id)
+                .map(car -> {
+                    car.setModel(newCar.getModel());
+                    car.setEnginePower(newCar.getEnginePower());
+                    car.setTorque(newCar.getTorque());
+                    return ResponseEntity.ok(carRepository.save(car));
+                })
+                .orElseGet(()->ResponseEntity.notFound().build());
+        return carUtil.convertCarToDTO(carRepository.findById(id).get());
+    }*/
 }

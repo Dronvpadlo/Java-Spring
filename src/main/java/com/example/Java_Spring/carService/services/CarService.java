@@ -33,15 +33,15 @@ public class CarService {
         carRepository.deleteById(id);
     }
 
-    /*public CarDTO putCar(Long id, Car newCar){
+    public CarDTO putCar(Long id, CarDTO newCar){
         carRepository.findById(id)
                 .map(car -> {
                     car.setModel(newCar.getModel());
                     car.setEnginePower(newCar.getEnginePower());
                     car.setTorque(newCar.getTorque());
-                    return ResponseEntity.ok(carRepository.save(car));
+                    return ResponseEntity.ok(carRepository.save(carUtil.converteDTOtoCar(newCar)));
                 })
                 .orElseGet(()->ResponseEntity.notFound().build());
         return carUtil.convertCarToDTO(carRepository.findById(id).get());
-    }*/
+    }
 }

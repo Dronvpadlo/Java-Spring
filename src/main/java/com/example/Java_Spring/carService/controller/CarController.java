@@ -41,15 +41,9 @@ public class CarController {
         return ResponseEntity.ok(carService.findAll());
     }
     @PutMapping("/cars/{id}")
-    public ResponseEntity<Car> changeCar(@PathVariable Long id, @RequestBody @Valid CarDTO newCar){
-        return carRepository.findById(id)
-                .map(car -> {
-                    car.setModel(newCar.getModel());
-                    car.setEnginePower(newCar.getEnginePower());
-                    car.setTorque(newCar.getTorque());
-                    return ResponseEntity.ok(carRepository.save(car));
-                })
-                .orElseGet(()->ResponseEntity.notFound().build());
+    public CarDTO changeCar(@PathVariable Long id, @RequestBody @Valid CarDTO newCar){
+        CarDTO updatedCar = carService.putCar(id, newCar);
+        return updatedCar;
     }
 
     @GetMapping("/cars/max-engine-power")

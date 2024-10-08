@@ -40,6 +40,7 @@ public class CarService {
                     car.setModel(newCar.getModel());
                     car.setEnginePower(newCar.getEnginePower());
                     car.setTorque(newCar.getTorque());
+                    car.setFuelType(newCar.getFuelType());
                     return ResponseEntity.ok(carRepository.save(carUtil.converteDTOtoCar(newCar)));
                 })
                 .orElseGet(()->ResponseEntity.notFound().build());

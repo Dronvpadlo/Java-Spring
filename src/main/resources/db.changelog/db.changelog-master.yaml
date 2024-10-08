@@ -28,3 +28,4 @@ databaseChangeLog:
               - column:
                   name: "torque"
                   type: "numeric"
+

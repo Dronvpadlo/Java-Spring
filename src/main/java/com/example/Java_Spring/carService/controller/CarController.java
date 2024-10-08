@@ -1,13 +1,18 @@
 package com.example.Java_Spring.carService.controller;
 
+import com.example.Java_Spring.carService.dto.CarDTO;
 import com.example.Java_Spring.carService.entity.Car;
 import com.example.Java_Spring.carService.repository.CarRepository;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Data
 @RestController
 @RequiredArgsConstructor
@@ -15,8 +20,12 @@ public class CarController {
 
     private final CarRepository carRepository;
     @GetMapping("/cars")
-    public ResponseEntity<List<Car>> getCars(){
-        return ResponseEntity.ok(carRepository.findAll());
+    public ResponseEntity<List<CarDTO>> getCars(){
+        List<Car> cars = carRepository.findAll();
+        List<CarDTO> collect = cars.stream()
+                .map(car -> new CarDTO(car.getId(), car.getModel(), car.getEnginePower(), car.getTorque()))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(collect);
     }
 
     @GetMapping("/cars/{id}")
@@ -25,12 +34,17 @@ public class CarController {
     }
 
     @PostMapping("/cars")
-    public ResponseEntity<Car> createCar(@RequestBody Car car){
+    public ResponseEntity<Car> createCar(@RequestBody @Valid CarDTO carDTO){
+        Car car = new Car();
+        car.setId(carDTO.getId());
+        car.setModel(carDTO.getModel());
+        car.setEnginePower(carDTO.getEnginePower());
+        car.setTorque(carDTO.getTorque());
         return ResponseEntity.ok(carRepository.save(car));
     }
 
     @PutMapping("/cars/{id}")
-    public ResponseEntity<Car> changeCar(@PathVariable Long id, @RequestBody Car newCar){
+    public ResponseEntity<Car> changeCar(@PathVariable Long id, @RequestBody @Valid Car newCar){
         return carRepository.findById(id)
                 .map(car -> {
                     car.setModel(newCar.getModel());

@@ -1,7 +1,7 @@
 package com.example.Java_Spring.carService.controller;
 
 
-import com.example.Java_Spring.carService.classes.Fuel;
+import com.example.Java_Spring.carService.entity.FuelType;
 import com.example.Java_Spring.carService.properties.ReferenceDataProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +30,13 @@ public class ReferenceController {
     }
 
     @GetMapping("/fuels")
-    public List<Fuel> getFuels(){
+    public List<FuelType> getFuels(){
         return referenceDataProperties.getFuels();
     }
 
     @GetMapping("/fuels/{name}")
-    public ResponseEntity<Fuel> getFuels(@PathVariable String name){
-        Optional<Fuel> result = Optional
+    public ResponseEntity<FuelType> getFuels(@PathVariable String name){
+        Optional<FuelType> result = Optional
                 .ofNullable(referenceDataProperties)
                 .map(ReferenceDataProperties::getFuels)
                 .stream()

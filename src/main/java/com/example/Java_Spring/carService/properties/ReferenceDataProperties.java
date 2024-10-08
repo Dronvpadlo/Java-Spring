@@ -1,5 +1,5 @@
 package com.example.Java_Spring.carService.properties;
-import com.example.Java_Spring.carService.classes.Fuel;
+import com.example.Java_Spring.carService.entity.FuelType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +14,5 @@ import java.util.List;
 @Configuration
 @ConfigurationProperties(prefix = "reference-data")
 public class ReferenceDataProperties {
-    private List<Fuel> fuels;
+    private List<FuelType> fuels;
 }

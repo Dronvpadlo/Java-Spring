@@ -7,6 +7,7 @@ import com.example.Java_Spring.carService.services.CarService;
 import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -21,18 +22,18 @@ public class CarController {
 
     @GetMapping("/cars")
     public ResponseEntity<List<CarDTO>> getCars(){
-        return ResponseEntity.ok(carService.findAll());
+        return new ResponseEntity<>(carService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/cars/{id}")
     public ResponseEntity<CarDTO> getCar(@PathVariable Long id){
-        return ResponseEntity.ok(carService.findById(id));
+        return new ResponseEntity<>(carService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping("/cars")
     public ResponseEntity<CarDTO> createCar(@RequestBody @Valid CarDTO carDTO){
         carService.saveCar(carDTO);
-        return ResponseEntity.ok(carDTO);
+        return new ResponseEntity<>(carDTO, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/cars")

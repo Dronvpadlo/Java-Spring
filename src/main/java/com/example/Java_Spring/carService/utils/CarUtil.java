@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class CarUtil {
 
     //Get All
-    public List<CarDTO> convertCarToDTO(List<Car> carList){
+    public List<CarDTO> convertCarsToDTO(List<Car> carList){
         List<CarDTO> collect = carList.stream()
                 .map(car -> new CarDTO(car.getId(), car.getModel(), car.getEnginePower(), car.getTorque(), car.getFuelType()))
                 .collect(Collectors

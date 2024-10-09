@@ -19,7 +19,7 @@ public class CarService {
     private CarUtil carUtil;
 
     public List<CarDTO> findAll() {
-        return carUtil.convertCarToDTO(carRepository.findAll());
+        return carUtil.convertCarsToDTO(carRepository.findAll());
     }
 
     public CarDTO findById(Long id) {

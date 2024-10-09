@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -22,7 +23,7 @@ public class CarService {
     }
 
     public CarDTO findById(Long id) {
-        return carUtil.convertCarToDTO(carRepository.findById(id).get());
+        return carUtil.convertCarToDTO(carRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Car with this id:" + id + " not found")));
     }
 
     public CarDTO saveCar (CarDTO carDTO){
